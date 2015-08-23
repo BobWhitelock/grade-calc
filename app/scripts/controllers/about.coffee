@@ -2,12 +2,12 @@
 
 ###*
  # @ngdoc function
- # @name gradeCalcCoffeeApp.controller:AboutCtrl
+ # @name gradeCalcApp.controller:AboutCtrl
  # @description
  # # AboutCtrl
- # Controller of the gradeCalcCoffeeApp
+ # Controller of the gradeCalcApp
 ###
-angular.module 'gradeCalcCoffeeApp'
+angular.module 'gradeCalcApp'
   .controller 'AboutCtrl', ->
     @awesomeThings = [
       'HTML5 Boilerplate'

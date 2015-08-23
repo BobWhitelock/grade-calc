@@ -15,7 +15,7 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "gradeCalcCoffeeApp",
+  "moduleName": "gradeCalcApp",
   "overrides": {
     "bootstrap": {
       "main": [

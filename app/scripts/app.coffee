@@ -2,14 +2,14 @@
 
 ###*
  # @ngdoc overview
- # @name gradeCalcCoffeeApp
+ # @name gradeCalcApp
  # @description
- # # gradeCalcCoffeeApp
+ # # gradeCalcApp
  #
  # Main module of the application.
 ###
 angular
-  .module 'gradeCalcCoffeeApp', [
+  .module 'gradeCalcApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
