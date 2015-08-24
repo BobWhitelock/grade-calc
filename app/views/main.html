@@ -19,12 +19,12 @@
       </td>
       <td>
         <div class="form-group">
-          <input type="text" class="form-control" ng-model='grade.weighting' placeholder='0'/>
+          <input type="number" min='0' max='100' class="form-control" ng-model='grade.weighting' placeholder='0'/>
         </div>
       </td>
       <td>
         <div class="form-group">
-          <input type="text" class="form-control" ng-model='grade.grade' placeholder='0'/> <!-- TODO don't call this same name? -->
+          <input type="number" min='0' max='100' class="form-control" ng-model='grade.grade' placeholder='0'/> <!-- TODO don't call this same name? -->
         </div>
       </td>
     </tr>

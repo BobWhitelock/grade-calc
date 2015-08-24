@@ -35,13 +35,13 @@ describe 'Controller: MainCtrl', ->
 
   it 'can calculate the overall grade', ->
     MainCtrl.grades = [
-      weighting: 0.5
+      weighting: 50
       grade: 50
     ,
-      weighting: 0.3
+      weighting: 30
       grade: 70
     ,
-      weighting: 0.2
+      weighting: 20
       grade: 40
     ]
     expect(MainCtrl.overallGrade()).toBe 54
