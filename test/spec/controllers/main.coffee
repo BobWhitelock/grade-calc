@@ -16,5 +16,32 @@ describe 'Controller: MainCtrl', ->
       # place here mocked dependencies
     }
 
-  it 'should attach a list of awesomeThings to the scope', ->
-    expect(MainCtrl.awesomeThings.length).toBe 3
+  it 'has one grade initially', ->
+    expect(MainCtrl.grades.length).toBe 1
+
+  it 'can add a new grade', ->
+    MainCtrl.addGrade()
+    expect(MainCtrl.grades.length).toBe 2
+
+  it 'has new grades have three properties', ->
+    MainCtrl.addGrade()
+    expect((_.keys _.last MainCtrl.grades).sort())
+    .toEqual ['description', 'grade', 'weighting']
+
+  it 'has new grades empty', ->
+    MainCtrl.addGrade()
+    expect(_.values _.last MainCtrl.grades)
+    .toEqual [null, null, null]
+
+  it 'can calculate the overall grade', ->
+    MainCtrl.grades = [
+      weighting: 0.5
+      grade: 50
+    ,
+      weighting: 0.3
+      grade: 70
+    ,
+      weighting: 0.2
+      grade: 40
+    ]
+    expect(MainCtrl.overallGrade()).toBe 54
