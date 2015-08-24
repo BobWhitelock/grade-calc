@@ -13,7 +13,7 @@ angular.module 'gradeCalcApp'
 
     @addGrade = ->
       @grades.push
-        weighting: null
+        percentage: null
         grade: null
         description: null
 
@@ -21,7 +21,7 @@ angular.module 'gradeCalcApp'
     @addGrade()
 
     @overallGrade = ->
-      _.sum _.map @grades, (grade) -> (grade.weighting / 100) * grade.grade
+      _.sum _.map @grades, (grade) -> (grade.percentage / 100) * grade.grade
 
 
     return

@@ -26,7 +26,7 @@ describe 'Controller: MainCtrl', ->
   it 'has new grades have three properties', ->
     MainCtrl.addGrade()
     expect((_.keys _.last MainCtrl.grades).sort())
-    .toEqual ['description', 'grade', 'weighting']
+    .toEqual ['description', 'grade', 'percentage']
 
   it 'has new grades empty', ->
     MainCtrl.addGrade()
@@ -35,13 +35,13 @@ describe 'Controller: MainCtrl', ->
 
   it 'can calculate the overall grade', ->
     MainCtrl.grades = [
-      weighting: 50
+      percentage: 50
       grade: 50
     ,
-      weighting: 30
+      percentage: 30
       grade: 70
     ,
-      weighting: 20
+      percentage: 20
       grade: 40
     ]
     expect(MainCtrl.overallGrade()).toBe 54
