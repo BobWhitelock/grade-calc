@@ -50,3 +50,23 @@ describe 'Controller: MainCtrl', ->
   it 'can calculate the overall grade', ->
     MainCtrl.grades = testGrades()
     expect(MainCtrl.overallGrade()).toBe 54
+
+  it 'can switch a grade from a percentage to a mark out of total', ->
+    MainCtrl.grades = [
+      percentage: 50
+      grade: 72
+      mark: {}
+    ]
+    MainCtrl.toMark(0)
+    expect(MainCtrl.isMark(0)).toBe true
+    expect(MainCtrl.getGrade(0).mark).toEqual {total: null, achieved: null}
+
+  it 'can switch a grade from a mark out of a total to a percentage', ->
+    MainCtrl.grades = [
+      mark:
+        total: 10
+        achieved: 6
+    ]
+    MainCtrl.toPercentage(0)
+    expect(MainCtrl.isPercentage(0)).toBe true
+    expect(MainCtrl.getGrade(0).grade).toBe null
