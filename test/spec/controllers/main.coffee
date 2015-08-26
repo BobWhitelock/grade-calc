@@ -33,6 +33,27 @@ describe 'Controller: MainCtrl', ->
     expect(_.values _.last MainCtrl.grades)
     .toEqual [null, null, null]
 
+  it 'can remove a grade', ->
+    MainCtrl.grades = [
+      percentage: 50
+      grade: 50
+    ,
+      percentage: 30
+      grade: 70
+    ,
+      percentage: 20
+      grade: 40
+    ]
+    MainCtrl.removeGrade(1)
+    expect(MainCtrl.grades).toEqual [
+      percentage: 50
+      grade: 50
+    ,
+      percentage: 20
+      grade: 40
+
+    ]
+
   it 'can calculate the overall grade', ->
     MainCtrl.grades = [
       percentage: 50
