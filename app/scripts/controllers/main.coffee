@@ -23,7 +23,6 @@ angular.module 'gradeCalcApp'
     @removeGrade = (position) ->
       _.pullAt(@grades, position)
 
-
     @overallGrade = ->
       _.sum _.map @grades, (grade) -> (grade.percentage / 100) * grade.grade
 
