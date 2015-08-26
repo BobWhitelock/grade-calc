@@ -10,6 +10,8 @@
       <th>
         Grade
       </th>
+      <th>
+      </th>
     </tr>
     <tr ng-repeat='grade in main.grades'>
       <td>
@@ -27,9 +29,14 @@
           <input type="number" min='0' max='100' class="form-control" ng-model='grade.grade' placeholder='0'/> <!-- TODO don't call this same name? -->
         </div>
       </td>
+      <td>
+        <button type="button" class="btn btn-danger">
+          <span class="glyphicon glyphicon-remove glyphicon-large" aria-hidden="true"></span>
+        </button>
+      </td>
     </tr>
     <tr>
-      <td colspan='3'>
+      <td colspan='4'>
         <button type="button" class="btn btn-success add-grade-button" ng-click='main.addGrade()'>
           Add
         </button>
