@@ -35,16 +35,6 @@ describe 'Controller: MainCtrl', ->
     MainCtrl.addGrade()
     expect(MainCtrl.grades.length).toBe 2
 
-  it 'has new grades have three properties', ->
-    MainCtrl.addGrade()
-    expect((_.keys _.last MainCtrl.grades).sort())
-    .toEqual ['description', 'grade', 'percentage']
-
-  it 'has new grades empty', ->
-    MainCtrl.addGrade()
-    expect(_.values _.last MainCtrl.grades)
-    .toEqual [null, null, null]
-
   it 'can remove a grade', ->
     MainCtrl.grades = testGrades()
     MainCtrl.removeGrade(1)
