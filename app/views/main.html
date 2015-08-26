@@ -7,10 +7,10 @@
       <th>
         Percentage
       </th>
-      <th>
+      <th colspan='2'>
         Grade
       </th>
-      <th>
+      <th colspan='1'>
       </th>
     </tr>
     <tr ng-repeat='grade in main.grades'>
@@ -25,9 +25,23 @@
         </div>
       </td>
       <td>
-        <div class="form-group">
+        <div class="form-group" ng-if="main.isPercentage($index)">
           <input type="number" min='0' max='100' class="form-control" ng-model='grade.grade' placeholder='0'/> <!-- TODO don't call this same name? -->
         </div>
+        <div class="form-group" ng-if="main.isMark($index)">
+          <input type="number" min='0' max='{{ grade.mark.total }}' class="form-control" ng-model='grade.mark.achieved' placeholder='0'/>
+          <input type="number" min='{{ grade.mark.achieved }}' class="form-control" ng-model='grade.mark.total' placeholder='0'/>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-default" ng-click="main.toMark($index)" ng-if="main.isPercentage($index)">
+          As mark
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" ng-click="main.toPercentage($index)" ng-if="main.isMark($index)">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          As percentage
+        </button>
       </td>
       <td>
         <button type="button" class="btn btn-danger" ng-click="main.removeGrade($index)">
@@ -36,7 +50,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan='4'>
+      <td colspan='6'>
         <button type="button" class="btn btn-success add-grade-button" ng-click='main.addGrade()'>
           Add
         </button>
