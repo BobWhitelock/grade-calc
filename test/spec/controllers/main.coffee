@@ -44,7 +44,6 @@ describe 'Controller: MainCtrl', ->
     ,
       percentage: 20
       grade: 40
-
     ]
 
   it 'can calculate the overall grade', ->
@@ -58,7 +57,7 @@ describe 'Controller: MainCtrl', ->
       mark: {}
     ]
     MainCtrl.toMark(0)
-    expect(MainCtrl.isMark(0)).toBe true
+    expect(MainCtrl.isMark(0)).toBeTruthy
     expect(MainCtrl.getGrade(0).mark).toEqual {total: null, achieved: null}
 
   it 'can switch a grade from a mark out of a total to a percentage', ->
@@ -68,5 +67,5 @@ describe 'Controller: MainCtrl', ->
         achieved: 6
     ]
     MainCtrl.toPercentage(0)
-    expect(MainCtrl.isPercentage(0)).toBe true
-    expect(MainCtrl.getGrade(0).grade).toBe null
+    expect(MainCtrl.isPercentage(0)).toBeTruthy
+    expect(MainCtrl.getGrade(0).grade).toBeNull
