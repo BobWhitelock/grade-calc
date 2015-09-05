@@ -1,0 +1,79 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creationDate="main.creationDate" />
+  </div>
+
+  <form>
+    <table class='table table-responsive table-striped'>
+      <tr>
+        <th>
+          Description
+        </th>
+        <th>
+          Percentage
+        </th>
+        <th colspan='2'>
+          Grade
+        </th>
+        <th colspan='1'>
+        </th>
+      </tr>
+      <tr ng-repeat='grade in main.grades'>
+        <td>
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model='grade.description' placeholder='Subject/module'/>
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <input type="number" min='0' max='100' class="form-control" ng-model='grade.percentage' placeholder='0'/>
+          </div>
+        </td>
+        <td>
+          <div class="form-group" ng-if="main.isPercentage($index)">
+            <input type="number" min='0' max='100' class="form-control" ng-model='grade.grade' placeholder='0'/> <!-- TODO don't call this same name? -->
+          </div>
+          <div class="form-group" ng-if="main.isMark($index)">
+            <input type="number" min='0' max='{{ grade.mark.total }}' class="form-control" ng-model='grade.mark.achieved' placeholder='0'/>
+            <input type="number" min='{{ grade.mark.achieved }}' class="form-control" ng-model='grade.mark.total' placeholder='0'/>
+          </div>
+        </td>
+        <td>
+          <button type="button" class="btn btn-default" ng-click="main.toMark($index)" ng-if="main.isPercentage($index)">
+            As mark
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-default" ng-click="main.toPercentage($index)" ng-if="main.isMark($index)">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            As percentage
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" ng-click="main.removeGrade($index)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan='6'>
+          <button type="button" class="btn btn-success add-grade-button" ng-click='main.addGrade()'>
+            Add
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <th colspan='2'>
+          Total
+        </th>
+        <th>
+          <div class="form-group">
+            <input type="text" class="form-control" readonly value='{{main.overallGrade() | number : 1}}'/>
+          </div>
+        </th>
+      </tr>
+    </table>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</div>
