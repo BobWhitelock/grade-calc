@@ -5,7 +5,7 @@
   </div>
 
   <form>
-    <table class='table table-responsive table-striped'>
+    <table class='table table-responsive table-striped grade-table'>
       <tr>
         <th>
           Description
@@ -19,7 +19,7 @@
         <th colspan='1'>
         </th>
       </tr>
-      <tr ng-repeat='grade in main.grades'>
+      <tr ng-repeat='grade in main.grades' class='grade-row'>
         <td>
           <div class="form-group">
             <input type="text" class="form-control" ng-model='grade.description' placeholder='Subject/module'/>
@@ -50,7 +50,7 @@
           </button>
         </td>
         <td>
-          <button type="button" class="btn btn-danger" ng-click="main.removeGrade($index)">
+          <button type="button" class="btn btn-danger delete-grade-button" ng-click="main.removeGrade($index)">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
         </td>
